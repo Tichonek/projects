@@ -61,7 +61,7 @@ def standard_game():
             #player guess counter
             print(f"This is your {count} try!")
             count += 1
-            
+
             #check if player's guess is correct
             if guess == secret_number:
                 print(f"Great! I was thinking about this number! ({secret_number})")
@@ -75,10 +75,43 @@ def standard_game():
                 print("Too small...")
                 continue
         
+def welcome_and_menu():
+    """Function to display welcome message and instrucion about game"""
+
+    print("\nHello in 'Guess the Number' game!")
+    print("\nHere are some options: ")
+
+    #menu for player to choose option
+    choice = None
+    while choice != "0":
+        print("""
+            0 - exit
+            1 - standard game
+            2 - modified game
+            """
+        )
+        choice = input("Option: ")
+
+        #exit game
+        if choice == "0":
+            print("Goodbye!")
+            break
+        #play standard game
+        elif choice == "1":
+            pass
+            
+        #bad option
+        else:
+            print("Bad option")
+        
+
+
+welcome_and_menu()
+
 
 #numbers_range = choose_range()
 #print(numbers_range)
 
-standard_game()
+#standard_game()
 #Jeśli min_value będzie większe lub równe  max_value to błąd. Trzeba zrobić warunek, który nie pozwoli na to
 #Do max_value trzeba dodać 1, żeby się zgadzało z tym co user wpisał
