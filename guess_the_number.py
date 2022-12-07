@@ -9,7 +9,7 @@ def choose_range():
     active = True
     while active:
         try:
-            min_value = int(input("Enter a minimum value: "))
+            min_value = int(input("\nEnter a minimum value: "))
         except ValueError:
             print("Please enter a number!")
         else:
@@ -46,13 +46,13 @@ def standard_game():
         user_range = choose_range()
 
         secret_number = random.randint(user_range[0], user_range[1]-1)
-        print(f"I am thinking about one number from between {user_range[0]} and {user_range[1]-1}...")
+        print(f"\nI am thinking about one number from between {user_range[0]} and {user_range[1]-1}...")
         #print(f"---{secret_number}---")
         #print(f"---{user_range}---")
     #variable with a secret number which player has to guess
     else:
         secret_number = random.randint(1,100)
-        print("I am thinking about one number from between 1 and 100...")
+        print("\nI am thinking about one number from between 1 and 100...")
 
     #player guess counter
     count = 1
@@ -66,22 +66,22 @@ def standard_game():
             print(f"This is your {count} try!")
             count += 1
 
-            guess = int(input("My choice is: "))
+            guess = int(input("\nMy choice is: "))
         except ValueError:
-            print("This is not a number!")
+            print("\nThis is not a number!")
             continue
         else:
             #check if player's guess is correct
             if guess == secret_number:
-                print(f"Great! I was thinking about this number! ({secret_number})")
+                print(f"\nGreat! I was thinking about this number! ({secret_number})")
                 active = False
         
             if guess > secret_number:
-                print("Too big...")
+                print("\nToo big...")
                 continue
 
             if guess < secret_number:
-                print("Too small...")
+                print("\nToo small...")
                 continue
         
 def welcome_and_menu():
@@ -102,7 +102,7 @@ def welcome_and_menu():
 
         #exit game
         if choice == "0":
-            print("Goodbye!")
+            print("\nGoodbye!")
             break
         #play game
         elif choice == "1":
@@ -110,7 +110,7 @@ def welcome_and_menu():
         
         #bad option
         else:
-            print("Bad option")
+            print("\nBad option")
         
 
 def ask_range():
@@ -118,7 +118,7 @@ def ask_range():
 
     active = True
     while active:
-        ask = input("Would you like your own range? (y/n): ")
+        ask = input("\nWould you like your own range? (y/n): ")
         question_status = None
         if ask.lower() == "y":
             question_status = True
@@ -127,7 +127,7 @@ def ask_range():
             question_status = False
             active = False
         else:
-            print("Bad option xd")
+            print("\nBad option xd")
             continue
     return question_status
 
