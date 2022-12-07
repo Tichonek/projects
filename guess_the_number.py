@@ -39,7 +39,7 @@ def choose_range():
     return numbers_range
     
 def standard_game():
-    """Function with game mechanic"""
+    """Function with standard game mechanic"""
 
     #variable with a secret number which player has to guess
     secret_number = random.randint(1,100)
