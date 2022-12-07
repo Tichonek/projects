@@ -45,9 +45,17 @@ def standard_game():
     secret_number = random.randint(1,100)
     print("I am thinking about one number from between 1 and 100...")
 
-    #let the user input guess the number
+    #player guess counter
+    count = 1
+    
     active = True
     while active:
+
+        #player guess counter
+        print(f"This is your {count} try!")
+        count += 1
+        
+        #ask player for a number
         guess = int(input("My choice is: "))
 
         #check if player's guess is correct
@@ -62,7 +70,7 @@ def standard_game():
         if guess < secret_number:
             print("Too small...")
             continue
-
+        
 
 #numbers_range = choose_range()
 #print(numbers_range)
