@@ -1,5 +1,7 @@
 #guess the number game
 
+import random
+
 def choose_range():
     """Selecting the range of numbers from which the number to be guessed will be drawn"""
 
@@ -36,11 +38,35 @@ def choose_range():
     numbers_range = min_value, max_value
     return numbers_range
     
+def standard_game():
+    """Function with game mechanic"""
 
-numbers_range = choose_range()
-print(numbers_range)
+    #variable with a secret number which player has to guess
+    secret_number = random.randint(1,100)
+    print("I am thinking about one number from between 1 and 100...")
+
+    #let the user input guess the number
+    active = True
+    while active:
+        guess = int(input("My choice is: "))
+
+        #check if player's guess is correct
+        if guess == secret_number:
+            print(f"Great! I was thinking about this number! ({secret_number})")
+            active = False
+        
+        if guess > secret_number:
+            print("Too big...")
+            continue
+
+        if guess < secret_number:
+            print("Too small...")
+            continue
 
 
+#numbers_range = choose_range()
+#print(numbers_range)
 
+standard_game()
 #Jeśli min_value będzie większe lub równe  max_value to błąd. Trzeba zrobić warunek, który nie pozwoli na to
 #Do max_value trzeba dodać 1, żeby się zgadzało z tym co user wpisał
