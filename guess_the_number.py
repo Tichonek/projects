@@ -29,7 +29,7 @@ def choose_range():
         else:
             active = False
 
-    print(f"I wll pick a number from between {min_value} and {max_value}")
+    #print(f"I wll pick a number from between {min_value} and {max_value}")
     
     #adding 1 to max_value because of function range(start, stop)
     max_value += 1
@@ -41,9 +41,17 @@ def choose_range():
 def standard_game():
     """Function with standard game mechanic"""
 
+    #asking player if he wants his own numbers range or standard range
+    if ask_range():
+        user_range = choose_range()
+        secret_number = random.randint(user_range[0], user_range[1]-1)
+        print(f"I am thinking about one number from between {user_range[0]} and {user_range[1]-1}...")
+        print(f"---{secret_number}---")
+        print(f"---{user_range}---")
     #variable with a secret number which player has to guess
-    secret_number = random.randint(1,100)
-    print("I am thinking about one number from between 1 and 100...")
+    else:
+        secret_number = random.randint(1,100)
+        print("I am thinking about one number from between 1 and 100...")
 
     #player guess counter
     count = 1
@@ -99,19 +107,33 @@ def welcome_and_menu():
         #play standard game
         elif choice == "1":
             pass
-            
+        
         #bad option
         else:
             print("Bad option")
         
 
+def ask_range():
+    """Function to ask player if he wants to make his own number range in game.  If yes, he can enter his own range, otherwise he plays with default range"""
 
-welcome_and_menu()
-
-
+    active = True
+    while active:
+        ask = input("Would you like your own range? (y/n): ")
+        question_status = None
+        if ask.lower() == "y":
+            question_status = True
+            active = False
+        elif ask.lower() == "n":
+            question_status = False
+            active = False
+        else:
+            print("Bad option xd")
+            continue
+    return question_status
 #numbers_range = choose_range()
 #print(numbers_range)
 
 #standard_game()
 #Jeśli min_value będzie większe lub równe  max_value to błąd. Trzeba zrobić warunek, który nie pozwoli na to
 #Do max_value trzeba dodać 1, żeby się zgadzało z tym co user wpisał
+standard_game()
