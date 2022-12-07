@@ -47,29 +47,33 @@ def standard_game():
 
     #player guess counter
     count = 1
-    
+
     active = True
     while active:
-
-        #player guess counter
-        print(f"This is your {count} try!")
-        count += 1
         
         #ask player for a number
-        guess = int(input("My choice is: "))
-
-        #check if player's guess is correct
-        if guess == secret_number:
-            print(f"Great! I was thinking about this number! ({secret_number})")
-            active = False
+        try:
+            guess = int(input("My choice is: "))
+        except ValueError:
+            print("This is not a number!")
+            continue
+        else:
+            #player guess counter
+            print(f"This is your {count} try!")
+            count += 1
+            
+            #check if player's guess is correct
+            if guess == secret_number:
+                print(f"Great! I was thinking about this number! ({secret_number})")
+                active = False
         
-        if guess > secret_number:
-            print("Too big...")
-            continue
+            if guess > secret_number:
+                print("Too big...")
+                continue
 
-        if guess < secret_number:
-            print("Too small...")
-            continue
+            if guess < secret_number:
+                print("Too small...")
+                continue
         
 
 #numbers_range = choose_range()
