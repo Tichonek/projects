@@ -1,9 +1,8 @@
 # projects
-Hello, this is my programming portfolio!
+Hi, this is my programming portfolio.
 
-I am going to write some projects and add them to this repo. 
+I intend to create various projects so I can post them here.
 
-This is also a way to increase my skills in using github.
+At the moment I am mainly focusing on Python, but it is possible that there will be other technologies as well.
 
-For now thats all.
-Thanks, for reading! :)
+Thanks for reading :)
